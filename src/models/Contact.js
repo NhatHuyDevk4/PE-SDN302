@@ -22,10 +22,16 @@ const ContactSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: [20, 'Phone number cannot exceed 20 characters'],
-        match: [
-            /^[\+]?[1-9][\d]{0,15}$/,
-            'Please provide a valid phone number'
-        ]
+        validate: {
+            validator: function (v) {
+                if (!v) return true; // Phone is optional
+                // Remove all non-digit characters except +
+                const cleaned = v.replace(/[^\d\+]/g, '');
+                // Check if it's a valid phone number (10-15 digits, optionally starting with +)
+                return /^[\+]?\d{10,15}$/.test(cleaned);
+            },
+            message: 'Please provide a valid phone number (10-15 digits)'
+        }
     },
     group: {
         type: String,
