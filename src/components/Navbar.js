@@ -1,45 +1,32 @@
-"use client";
-import Link from "next/link";
-import {FiShoppingCart} from "react-icons/fi";
+'use client';
+
+import Link from 'next/link';
+import { FaAddressBook, FaPlus, FaHome } from 'react-icons/fa';
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow-md transition-colors duration-300 hover:bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className="bg-white border-b border-gray-200 shadow-lg">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo / Brand */}
           <Link
             href="/"
-            className="text-2xl font-bold tracking-tight text-gray-800 hover:text-gray-600 transition-colors duration-300"
+            className="flex items-center space-x-3 text-xl font-bold text-gray-800 transition-colors duration-200 hover:text-blue-600"
           >
-            ClothCart
+            <FaAddressBook className="w-6 h-6 text-blue-600" />
+            <span>Contact Manager</span>
           </Link>
 
           {/* Navigation Links */}
-          <div className="space-x-4 flex items-center">
+          {/* <div className="flex items-center space-x-6">
             <Link
               href="/"
-              className="text-medium text-gray-700 hover:text-black transition-colors duration-300 font-medium px-3 py-2 rounded hover:bg-gray-200"
+              className="flex items-center px-3 py-2 space-x-2 font-medium text-gray-700 transition-all duration-200 rounded-lg hover:text-blue-600 hover:bg-blue-50"
             >
-              Home
+              <FaHome className="w-4 h-4" />
+              <span>Home</span>
             </Link>
-            {/* Cart with quantity */}
-            <Link
-              href="/"
-              className="relative flex items-center text-gray-700 hover:text-black transition-colors duration-300 font-medium px-3 py-2 rounded hover:bg-gray-200"
-            >
-              <FiShoppingCart className="mr-1" />
-              Cart
-            </Link>
-            {/* Auth Buttons */}
-            <Link
-              href="/"
-              className="text-medium text-gray-700 hover:text-black transition-colors duration-300 font-medium px-3 py-2 rounded hover:bg-gray-200"
-            >
-              Login
-            </Link>
-            {" "}
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
